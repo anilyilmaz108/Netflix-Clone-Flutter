@@ -30,6 +30,19 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get_storage:
+  get:
+  dio:
+  rounded_loading_button:
+  flutter_staggered_animations:
+  awesome_dialog:
+  flutter_spinkit:
+  pull_to_refresh:
+  readmore:
+  smooth_page_indicator:
+  video_player:
+  lottie:
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,8 +72,13 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/splash/data.json
+    - assets/images/image1.png
+    - assets/images/image2.png
+    - assets/images/image3.png
+    - assets/images/image4.png
+    - assets/images/Netflix-Brand-Logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
