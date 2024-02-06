@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:netflix_clone/app/modules/home/binding/home_binding.dart';
 import 'package:netflix_clone/app/routes/app_pages.dart';
 
 void main() async{
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Netflix Clone',
       debugShowCheckedModeBanner: false,
-      //initialBinding: GetStartedBinding(),
+      initialBinding: HomeBinding(),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       theme: ThemeData(

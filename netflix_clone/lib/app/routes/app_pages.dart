@@ -3,6 +3,8 @@ import 'package:netflix_clone/app/modules/base/binding/base_binding.dart';
 import 'package:netflix_clone/app/modules/base/views/base_view.dart';
 import 'package:netflix_clone/app/modules/get_started/binding/get_started_binding.dart';
 import 'package:netflix_clone/app/modules/get_started/views/get_started_view.dart';
+import 'package:netflix_clone/app/modules/home/binding/home_binding.dart';
+import 'package:netflix_clone/app/modules/home/views/home_view.dart';
 import 'package:netflix_clone/app/modules/login/binding/login_binding.dart';
 import 'package:netflix_clone/app/modules/login/views/login_view.dart';
 import 'package:netflix_clone/app/modules/register/binding/register_binding.dart';
@@ -41,7 +43,15 @@ class AppPages{
     GetPage(
         name: _Paths.BASE,
         page: () => BaseView(),
-        binding: BaseBinding()
+        binding: BaseBinding(),
+      children: [
+        GetPage(
+            name: _Paths.HOME,
+            page: () => HomeView(),
+            binding: HomeBinding()
+        ),
+      ]
     ),
+
   ];
 }

@@ -8,12 +8,10 @@ class BaseView extends GetView<BaseController>{
     HomeView(),
     HomeView(),
     HomeView(),
-    HomeView(),
-    HomeView(),
   ];
 
   List<String> appbarTitleList = [
-    "Home","Tv Shows","Trending","Upcoming","More"
+    "Home","Search","My List"
   ];
 
   @override
@@ -29,20 +27,12 @@ class BaseView extends GetView<BaseController>{
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.tv),
-            label: "Tv Shows",
+            icon: Icon(Icons.search),
+            label: "Search",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite,),
-            label: "Trending",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person,),
-            label: "Upcoming",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings,),
-            label: "More",
+            label: "My List",
           ),
         ],
         type: BottomNavigationBarType.fixed,
