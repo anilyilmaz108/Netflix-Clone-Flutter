@@ -14,10 +14,10 @@ class RegisterWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(5)),
       child: TextButton(
         onPressed: () {
-          Get.toNamed('/splash');
+          Get.toNamed('/login');
         },
         child: const Text(
-          "SIGN OUT",
+          "SIGN IN",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white,
