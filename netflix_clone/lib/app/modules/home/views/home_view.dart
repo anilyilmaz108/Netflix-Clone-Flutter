@@ -55,6 +55,7 @@ class HomeView extends GetView<HomeController>{
                             padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
                             child: Text(
                                 "${controller.trendingMovies[controller.randomNumber.value].overview}",
+                              maxLines: 3,
                               style: TextStyle(color: Colors.white70, fontSize: 16),
                             ),
                           ),

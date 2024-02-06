@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflix_clone/app/modules/base/controller/base_controller.dart';
 import 'package:netflix_clone/app/modules/home/views/home_view.dart';
+import 'package:netflix_clone/app/modules/search/views/search_page_view.dart';
 
 class BaseView extends GetView<BaseController>{
   static List<Widget> _widgetOptions = <Widget>[
     HomeView(),
-    HomeView(),
+    SearchPageView(),
     HomeView(),
   ];
 

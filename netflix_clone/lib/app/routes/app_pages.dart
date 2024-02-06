@@ -9,6 +9,8 @@ import 'package:netflix_clone/app/modules/login/binding/login_binding.dart';
 import 'package:netflix_clone/app/modules/login/views/login_view.dart';
 import 'package:netflix_clone/app/modules/register/binding/register_binding.dart';
 import 'package:netflix_clone/app/modules/register/views/register_view.dart';
+import 'package:netflix_clone/app/modules/search/binding/search_page_binding.dart';
+import 'package:netflix_clone/app/modules/search/views/search_page_view.dart';
 import 'package:netflix_clone/app/modules/splash/binding/splash_binding.dart';
 import 'package:netflix_clone/app/modules/splash/views/splash_view.dart';
 
@@ -17,7 +19,7 @@ part 'app_routes.dart';
 class AppPages{
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.BASE;
 
   static final routes = [
     GetPage(
@@ -49,6 +51,11 @@ class AppPages{
             name: _Paths.HOME,
             page: () => HomeView(),
             binding: HomeBinding()
+        ),
+        GetPage(
+            name: _Paths.SEARCHPAGE,
+            page: () => SearchPageView(),
+            binding: SearchPageBinding()
         ),
       ]
     ),
