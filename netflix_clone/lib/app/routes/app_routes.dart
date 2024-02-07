@@ -9,6 +9,7 @@ abstract class Routes {
   static const BASE = _Paths.BASE;
   static const HOME = _Paths.BASE + _Paths.HOME;
   static const SEARCHPAGE = _Paths.BASE + _Paths.SEARCHPAGE;
+  static const DETAIL = _Paths.DETAIL;
 
 }
 
@@ -21,5 +22,6 @@ abstract class _Paths {
   static const BASE = '/base';
   static const HOME = '/home';
   static const SEARCHPAGE = '/searchpage';
+  static const DETAIL = '/detail';
 
 }

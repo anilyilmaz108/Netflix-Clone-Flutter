@@ -21,7 +21,7 @@ class HomeController extends GetxController{
   @override
   void onInit(){
     super.onInit();
-    randomNumber.value = random.nextInt(20);
+    randomNumber.value = random.nextInt(5);
     getTrendingMovies();
     getActionMovies();
     getAdventureMovies();

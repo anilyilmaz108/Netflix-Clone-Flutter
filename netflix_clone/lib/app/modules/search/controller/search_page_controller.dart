@@ -6,10 +6,10 @@ import 'package:netflix_clone/app/services/movie_service.dart';
 class SearchPageController extends GetxController{
   var searchWord = "".obs;
   var searchMovies = List<Movie>.empty().obs;
+
   @override
   void onInit() {
     super.onInit();
-    ever(searchWord, (value) => print("$value has been changed!!!"));
     getSearchMovies();
   }
 
@@ -23,4 +23,5 @@ class SearchPageController extends GetxController{
       throw Exception(e);
     }
   }
+
 }

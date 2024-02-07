@@ -125,7 +125,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.trendingMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },
@@ -160,7 +160,8 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.actionMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
+                                ,
                               ),
                             );
                           },
@@ -195,7 +196,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.adventureMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },
@@ -230,7 +231,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.animationMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'search_id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },
@@ -265,7 +266,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.comedyMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },
@@ -300,7 +301,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.documentaryMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },
@@ -335,7 +336,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.scienceFictionMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },
@@ -370,7 +371,7 @@ class HomeView extends GetView<HomeController>{
                               child: MovieSectionWidget(
                                 image: "https://image.tmdb.org/t/p/original${controller.thrillerMovies.toList()[index].backdrop_path}",
                                 bgColor: const Color(0xFFFEFBF9),
-                                press: () {},
+                                  press: () => Get.toNamed('/detail', arguments: {'id': controller.actionMovies.toList()[index].id})
                               ),
                             );
                           },

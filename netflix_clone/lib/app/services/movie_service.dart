@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:netflix_clone/app/core/api.dart';
+import 'package:netflix_clone/app/core/constants.dart';
+import 'package:netflix_clone/app/models/casting.dart';
 import 'package:netflix_clone/app/models/movie.dart';
 
 class MovieService {
@@ -24,5 +26,35 @@ class MovieService {
           vote_count: res["vote_count"]);
     }).toList();
   }
+
+  static Future<Movie> getDetails(int id) async {
+    var response = await Api().dio.get('/movie/$id?api_key=${Constants.apikey}&language=${Constants.language}');
+
+    var overview = jsonDecode(response.data)["overview"];
+    var original_title = jsonDecode(response.data)["original_title"];
+    var backdrop_path = jsonDecode(response.data)["backdrop_path"];
+
+    return Movie(
+      overview: overview,
+      original_title: original_title,
+      backdrop_path: backdrop_path
+    );
+  }
+
+  static Future<List<Casting>> getCasting(int id) async {
+    var response = await Api().dio.get(
+      '/movie/$id/credits?api_key=${Constants.apikey}'
+    );
+
+    var resData = jsonDecode(response.data)["cast"] as List<dynamic>;
+    return resData.map((res) {
+      return Casting(
+        original_name: res["original_name"],
+        profile_path: res["profile_path"],
+        character: res["character"],
+      );
+    }).toList();
+  }
+
 
 }

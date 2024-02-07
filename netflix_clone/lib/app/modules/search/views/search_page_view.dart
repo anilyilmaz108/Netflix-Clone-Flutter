@@ -64,7 +64,7 @@ class SearchPageView extends GetView<SearchPageController>{
                                   child: MovieSectionWidget(
                                     image: "https://image.tmdb.org/t/p/original${controller.searchMovies.toList()[index].backdrop_path}",
                                     bgColor: const Color(0xFFFEFBF9),
-                                    press: () {},
+                                      press: () => Get.toNamed('/detail', arguments: {'id': controller.searchMovies.toList()[index].id})
                                   ),
                                 );
                               },

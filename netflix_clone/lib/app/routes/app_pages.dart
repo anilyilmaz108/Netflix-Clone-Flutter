@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:netflix_clone/app/modules/base/binding/base_binding.dart';
 import 'package:netflix_clone/app/modules/base/views/base_view.dart';
+import 'package:netflix_clone/app/modules/detail/binding/detail_binding.dart';
+import 'package:netflix_clone/app/modules/detail/views/detail_view.dart';
 import 'package:netflix_clone/app/modules/get_started/binding/get_started_binding.dart';
 import 'package:netflix_clone/app/modules/get_started/views/get_started_view.dart';
 import 'package:netflix_clone/app/modules/home/binding/home_binding.dart';
@@ -58,6 +60,11 @@ class AppPages{
             binding: SearchPageBinding()
         ),
       ]
+    ),
+    GetPage(
+        name: _Paths.DETAIL,
+        page: () => DetailView(),
+        binding: DetailBinding()
     ),
 
   ];
