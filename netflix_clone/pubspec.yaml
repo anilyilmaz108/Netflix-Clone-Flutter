@@ -41,6 +41,7 @@ dependencies:
   readmore:
   smooth_page_indicator:
   video_player:
+  youtube_player_flutter:
   lottie:
   email_validator:
 

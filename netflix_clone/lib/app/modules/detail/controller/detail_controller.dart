@@ -2,13 +2,18 @@ import 'package:get/get.dart';
 import 'package:netflix_clone/app/core/constants.dart';
 import 'package:netflix_clone/app/models/casting.dart';
 import 'package:netflix_clone/app/models/movie.dart';
+import 'package:netflix_clone/app/models/video.dart';
 import 'package:netflix_clone/app/services/movie_service.dart';
+import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class DetailController extends GetxController{
   var detailMovie = Movie().obs;
   int getID = Get.arguments['id'] ?? 0;
   var castingList = List<Casting>.empty().obs;
   var similarMovies = List<Movie>.empty().obs;
+  var videoKeyList = List<Video>.empty().obs;
+  var videoKey = ''.obs;
 
   @override
   void onInit() {
@@ -16,6 +21,7 @@ class DetailController extends GetxController{
     getDetailMovie();
     getCasting();
     getSimilarMovies();
+    getVideoKey();
   }
 
   void getDetailMovie() async{
@@ -47,4 +53,41 @@ class DetailController extends GetxController{
     }
   }
 
+  void getVideoKey() async{
+    try {
+      var result = await MovieService.getVideo(getID);
+      videoKeyList.value = result;
+      for(var item in videoKeyList){
+        if(item.type == "Trailer"){
+          videoKey.value = item.key!;
+          videocontroller = YoutubePlayerController(
+            initialVideoId: videoKey.value,
+            flags: YoutubePlayerFlags(
+              autoPlay: true,
+              mute: true,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  ///video
+  late YoutubePlayerController videocontroller;
+  late PlayerState _playerState;
+  late YoutubeMetaData _videoMetaData;
+  var isPlayerReady = false.obs;
+
+  void listener() {
+    if (isPlayerReady.value  && !videocontroller.value.isFullScreen) {
+      _playerState = videocontroller.value.playerState;
+      _videoMetaData = videocontroller.metadata;
+    }
+  }
+
+
 }
+
+

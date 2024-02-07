@@ -24,81 +24,28 @@ class HomeView extends GetView<HomeController>{
                         fit: BoxFit.fill
                     )
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(child: Text("Movies", style: TextStyle(color: Colors.white70, fontSize: 20),), onTap: (){},),
-                          //SizedBox(width: 10,),
-                          GestureDetector(child: Text("TV Shows", style: TextStyle(color: Colors.white70, fontSize: 20),), onTap: (){},),
-                          //SizedBox(width: 10,),
-                          GestureDetector(child: Text("My List", style: TextStyle(color: Colors.white70, fontSize: 20),), onTap: (){},),
-                        ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
+                        child: Text(
+                          "${controller.trendingMovies[controller.randomNumber.value].title}",
+                          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
-                            child: Text(
-                              "${controller.trendingMovies[controller.randomNumber.value].title}",
-                              style: TextStyle(color: Colors.white70, fontSize: 20, fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
-                            child: Text(
-                                "${controller.trendingMovies[controller.randomNumber.value].overview}",
-                              maxLines: 3,
-                              style: TextStyle(color: Colors.white70, fontSize: 16),
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                children: [
-                                  IconButton(onPressed: (){}, icon: Icon(Icons.add, color: Colors.white70,)),
-                                  Text("My List", style: TextStyle(color: Colors.white70, fontSize: 20),)
-                                ],
-                              ),
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                  ),
-                                  //minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 50)),
-                                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                                  elevation: MaterialStateProperty.all(3),
-                                ),
-                                onPressed: ()async{},
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.play_arrow, color: Colors.black,),
-                                    Text("Play", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
-                                  ],
-                                ),
-                              ),
-                              Column(
-                                children: [
-                                  IconButton(onPressed: (){}, icon: Icon(Icons.info_outline_rounded, color: Colors.white70,)),
-                                  Text("Info", style: TextStyle(color: Colors.white70, fontSize: 20),)
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
+                        child: Text(
+                            "${controller.trendingMovies[controller.randomNumber.value].overview}",
+                          maxLines: 3,
+                          style: TextStyle(color: Colors.white70, fontSize: 20),
+                        ),
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
               )),
               /// Trending Movies

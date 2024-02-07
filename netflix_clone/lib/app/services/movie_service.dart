@@ -3,6 +3,7 @@ import 'package:netflix_clone/app/core/api.dart';
 import 'package:netflix_clone/app/core/constants.dart';
 import 'package:netflix_clone/app/models/casting.dart';
 import 'package:netflix_clone/app/models/movie.dart';
+import 'package:netflix_clone/app/models/video.dart';
 
 class MovieService {
   static Future<List<Movie>> getMovies(String path) async {
@@ -52,6 +53,28 @@ class MovieService {
         original_name: res["original_name"],
         profile_path: res["profile_path"],
         character: res["character"],
+      );
+    }).toList();
+  }
+
+  static Future<List<Video>> getVideo(int id) async {
+    var response = await Api().dio.get(
+        '/movie/$id/videos?api_key=${Constants.apikey}'
+    );
+
+    var resData = jsonDecode(response.data)["results"] as List<dynamic>;
+    return resData.map((res) {
+      return Video(
+        iso_639_1: res["original_name"],
+        iso_3166_1: res["profile_path"],
+        name: res["character"],
+        key: res["key"],
+        site: res["site"],
+        size: res["size"],
+        type: res["type"],
+        official: res["official"],
+        published_at: res["published_at"],
+        id: res["id"],
       );
     }).toList();
   }
