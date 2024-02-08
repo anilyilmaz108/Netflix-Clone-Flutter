@@ -1,11 +1,12 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:netflix_clone/app/core/constants.dart';
 import 'package:netflix_clone/app/modules/login/controller/login_controller.dart';
 
 class LoginView extends GetView<LoginController>{
   LoginView({super.key});
-  final _registerFormKey = GlobalKey<FormState>();
+  final _loginFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   @override
@@ -48,7 +49,7 @@ class LoginView extends GetView<LoginController>{
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Form(
-                        key: _registerFormKey,
+                        key: _loginFormKey,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -124,7 +125,20 @@ class LoginView extends GetView<LoginController>{
                                   backgroundColor: MaterialStateProperty.all(Colors.red[700]),
                                   elevation: MaterialStateProperty.all(3),
                                 ),
-                                onPressed: ()async{},
+                                onPressed: ()async{
+                                if (_loginFormKey.currentState!.validate()) {
+                                  controller.email.value = _emailController.text;
+                                  controller.password.value = _passwordController.text;
+                                  controller.getUser();
+                                  Constants.username = controller.username.value;
+                                  Constants.userId = controller.userId.value;
+                                  final snackBar = SnackBar(
+                                    content: Text('${controller.email} joined Netflix.'),
+                                    backgroundColor: Colors.orange,
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                }
+                                },
                                 child: Text("Sign in", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                               ),
                             ),

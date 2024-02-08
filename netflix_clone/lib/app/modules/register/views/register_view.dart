@@ -10,6 +10,9 @@ class RegisterView extends GetView<RegisterController>{
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    _usernameController.text = "Deneme1";
+    _passwordController.text = "123123";
+    _emailController.text = "deneme@gmail.com";
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black54,
@@ -150,7 +153,17 @@ class RegisterView extends GetView<RegisterController>{
                                   elevation: MaterialStateProperty.all(3),
                                 ),
                                 onPressed: ()async{
-                                  Get.offAllNamed('/base');
+                                  if (_registerFormKey.currentState!.validate()) {
+                                    controller.username.value = _passwordController.text;
+                                    controller.email.value = _emailController.text;
+                                    controller.password.value = _passwordController.text;
+                                    controller.postUser();
+                                    final snackBar = SnackBar(
+                                      content: Text('${controller.username.value} joined Netflix.'),
+                                      backgroundColor: Colors.orange,
+                                    );
+                                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                  }
                                 },
                                 child: Text("Register", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                               ),

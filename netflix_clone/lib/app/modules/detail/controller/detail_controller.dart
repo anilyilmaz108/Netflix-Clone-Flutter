@@ -4,7 +4,6 @@ import 'package:netflix_clone/app/models/casting.dart';
 import 'package:netflix_clone/app/models/movie.dart';
 import 'package:netflix_clone/app/models/video.dart';
 import 'package:netflix_clone/app/services/movie_service.dart';
-import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class DetailController extends GetxController{
