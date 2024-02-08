@@ -82,7 +82,14 @@ class DetailView extends GetView<DetailController>{
                     Positioned(
                         right: 8,
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            controller.postMylist();
+                            final snackBar = SnackBar(
+                              content: Text('${controller.detailMovie.value.original_title} added My List.'),
+                              backgroundColor: Colors.orange,
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          },
                           icon: Icon(Icons.favorite, color: Colors.white70, size: 24,),
                         )
                     )

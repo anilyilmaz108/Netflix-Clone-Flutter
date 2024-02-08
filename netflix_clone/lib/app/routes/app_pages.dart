@@ -9,6 +9,8 @@ import 'package:netflix_clone/app/modules/home/binding/home_binding.dart';
 import 'package:netflix_clone/app/modules/home/views/home_view.dart';
 import 'package:netflix_clone/app/modules/login/binding/login_binding.dart';
 import 'package:netflix_clone/app/modules/login/views/login_view.dart';
+import 'package:netflix_clone/app/modules/mylist/binding/mylist_binding.dart';
+import 'package:netflix_clone/app/modules/mylist/views/mylist_view.dart';
 import 'package:netflix_clone/app/modules/register/binding/register_binding.dart';
 import 'package:netflix_clone/app/modules/register/views/register_view.dart';
 import 'package:netflix_clone/app/modules/search/binding/search_page_binding.dart';
@@ -58,6 +60,11 @@ class AppPages{
             name: _Paths.SEARCHPAGE,
             page: () => SearchPageView(),
             binding: SearchPageBinding()
+        ),
+        GetPage(
+            name: _Paths.MYLIST,
+            page: () => MylistView(),
+            binding: MylistBinding()
         ),
       ]
     ),

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:netflix_clone/app/core/constants.dart';
 import 'package:netflix_clone/app/models/user.dart';

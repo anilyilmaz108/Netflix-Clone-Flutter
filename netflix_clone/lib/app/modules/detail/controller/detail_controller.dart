@@ -4,6 +4,7 @@ import 'package:netflix_clone/app/models/casting.dart';
 import 'package:netflix_clone/app/models/movie.dart';
 import 'package:netflix_clone/app/models/video.dart';
 import 'package:netflix_clone/app/services/movie_service.dart';
+import 'package:netflix_clone/app/services/mylist_service.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class DetailController extends GetxController{
@@ -83,6 +84,14 @@ class DetailController extends GetxController{
     if (isPlayerReady.value  && !videocontroller.value.isFullScreen) {
       _playerState = videocontroller.value.playerState;
       _videoMetaData = videocontroller.metadata;
+    }
+  }
+
+  void postMylist() async{
+    try {
+      var result = await MylistService.postMylist(detailMovie.value);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
