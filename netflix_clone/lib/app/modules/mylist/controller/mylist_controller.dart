@@ -21,7 +21,7 @@ class MylistController extends GetxController{
 
   void deleteMylist(int id) async{
     try {
-      var result = await MylistService.deleteMyList(id).then((value) => getMylistMovies());
+      var result = await MylistService.deleteMylist(id).then((value) => getMylistMovies());
     } catch (e) {
       throw Exception(e);
     }

@@ -55,7 +55,6 @@ class LoginView extends GetView<LoginController>{
                           children: [
                             TextFormField(
                               controller: _emailController,
-                              //style: TextStyle(color: Colors.white70),
                               validator: (value) {
                                 if (!EmailValidator.validate(value!)) {
                                   return "Invalid Email";
@@ -78,7 +77,6 @@ class LoginView extends GetView<LoginController>{
                             ),
                             Obx(() => TextFormField(
                               controller: _passwordController,
-                              //style: TextStyle(color: Colors.white70),
                               validator: (value) {
                                 if(value!=null){
                                   if (value.length < 6) {
@@ -121,7 +119,6 @@ class LoginView extends GetView<LoginController>{
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
                                   ),
-                                  //minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 50)),
                                   backgroundColor: MaterialStateProperty.all(Colors.red[700]),
                                   elevation: MaterialStateProperty.all(3),
                                 ),

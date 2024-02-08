@@ -12,31 +12,8 @@ class Environment {
       return Constants.baseurl;
     } else {
       print('Local Mode aktif');
-      return Platform.isIOS ? 'http://localhost:3000' : 'http://10.0.2.2:3000';
+      return Platform.isIOS ? Constants.baseServerUrlIOS : Constants.baseServerUrl;
     }
   }
 
-  bool showInDebug() {
-    if (kDebugMode) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  String getUsername() {
-    if (kReleaseMode) {
-      return '';
-    } else {
-      return '';
-    }
-  }
-
-  String getPassword() {
-    if (kReleaseMode) {
-      return '';
-    } else {
-      return '';
-    }
-  }
 }

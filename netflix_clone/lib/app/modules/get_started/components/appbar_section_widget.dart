@@ -8,21 +8,12 @@ class AppBarSectionWidget extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 60,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'assets/images/Netflix-Brand-Logo.png',
-              height: 70,
-            ),
-            const Text(
-              "Help",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white60
-              ),
-            )
-          ],
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Image.asset(
+            'assets/images/Netflix-Brand-Logo.png',
+            height: 70,
+          ),
         ),
       ),
     );

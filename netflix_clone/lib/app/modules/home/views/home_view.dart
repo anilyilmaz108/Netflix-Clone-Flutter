@@ -15,39 +15,45 @@ class HomeView extends GetView<HomeController>{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///Jumbotron
-              Obx(() => Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.6,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage("https://image.tmdb.org/t/p/original${controller.trendingMovies.toList()[controller.randomNumber.value].backdrop_path}"),
-                        fit: BoxFit.fill
-                    )
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
-                        child: Text(
-                          "${controller.trendingMovies[controller.randomNumber.value].title}",
-                          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
-                        ),
+              Obx(() {
+                if(controller.trendingMovies.isEmpty){
+                  return Center(child: const CircularProgressIndicator());
+                }else{
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.6,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage("https://image.tmdb.org/t/p/original${controller.trendingMovies.toList()[controller.randomNumber.value].backdrop_path}"),
+                            fit: BoxFit.fill
+                        )
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
+                            child: Text(
+                              "${controller.trendingMovies[controller.randomNumber.value].title}",
+                              style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
+                            child: Text(
+                              "${controller.trendingMovies[controller.randomNumber.value].overview}",
+                              maxLines: 3,
+                              style: TextStyle(color: Colors.white70, fontSize: 20),
+                            ),
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 8.0),
-                        child: Text(
-                            "${controller.trendingMovies[controller.randomNumber.value].overview}",
-                          maxLines: 3,
-                          style: TextStyle(color: Colors.white70, fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )),
+                    ),
+                  );
+                }
+              }),
               /// Trending Movies
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),

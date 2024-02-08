@@ -10,9 +10,6 @@ class RegisterView extends GetView<RegisterController>{
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    _usernameController.text = "Deneme1";
-    _passwordController.text = "123123";
-    _emailController.text = "deneme@gmail.com";
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black54,
@@ -57,7 +54,6 @@ class RegisterView extends GetView<RegisterController>{
                           children: [
                             TextFormField(
                               controller: _usernameController,
-                              //style: TextStyle(color: Colors.white70),
                               validator: (value) {
                                 if(value != null){
                                   if (value.isEmpty) {
@@ -82,7 +78,6 @@ class RegisterView extends GetView<RegisterController>{
                             ),
                             TextFormField(
                               controller: _emailController,
-                              //style: TextStyle(color: Colors.white70),
                               validator: (value) {
                                 if (!EmailValidator.validate(value!)) {
                                   return "Invalid Email";
@@ -105,7 +100,6 @@ class RegisterView extends GetView<RegisterController>{
                             ),
                             Obx(() => TextFormField(
                               controller: _passwordController,
-                              //style: TextStyle(color: Colors.white70),
                               validator: (value) {
                                 if(value!=null){
                                   if (value.length < 6) {

@@ -12,7 +12,7 @@ class MylistService{
     ];
   }
 
-  static Future<void> deleteMyList(int id) async {
+  static Future<void> deleteMylist(int id) async {
     final dio = Dio();
     final response = await dio.delete('${Constants.baseServerUrl}/favourites/$id?id=int');
   }

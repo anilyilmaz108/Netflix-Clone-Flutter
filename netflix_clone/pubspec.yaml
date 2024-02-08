@@ -33,12 +33,7 @@ dependencies:
   get_storage:
   get:
   dio:
-  rounded_loading_button:
   flutter_staggered_animations:
-  awesome_dialog:
-  flutter_spinkit:
-  pull_to_refresh:
-  readmore:
   smooth_page_indicator:
   video_player:
   youtube_player_flutter:

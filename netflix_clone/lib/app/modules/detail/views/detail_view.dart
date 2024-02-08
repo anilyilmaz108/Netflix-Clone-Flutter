@@ -1,15 +1,12 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:netflix_clone/app/modules/detail/controller/detail_controller.dart';
 import 'package:netflix_clone/app/modules/home/components/movie_section_widget.dart';
-import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class DetailView extends GetView<DetailController>{
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +14,6 @@ class DetailView extends GetView<DetailController>{
       body: SafeArea(
         child: SingleChildScrollView(
           child: Obx(() {
-
             return Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +106,6 @@ class DetailView extends GetView<DetailController>{
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
-                          //minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 50)),
                           backgroundColor: MaterialStateProperty.all(Colors.red[600]),
                           elevation: MaterialStateProperty.all(3),
                         ),
@@ -132,7 +127,6 @@ class DetailView extends GetView<DetailController>{
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
-                          //minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 50)),
                           backgroundColor: MaterialStateProperty.all(Colors.red[600]),
                           elevation: MaterialStateProperty.all(3),
                         ),
@@ -160,7 +154,9 @@ class DetailView extends GetView<DetailController>{
                   padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                   child: Text("Casting", style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w600, fontSize: 24),),
                 ),
-                Container(
+                controller.castingList.isEmpty
+                    ? Container()
+                    : Container(
                     height: MediaQuery.of(context).size.height,
                     child: ListView.builder(
                       itemCount: 10,
