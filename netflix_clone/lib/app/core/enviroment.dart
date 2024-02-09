@@ -12,7 +12,7 @@ class Environment {
       return Constants.baseurl;
     } else {
       print('Local Mode aktif');
-      return Platform.isIOS ? Constants.baseServerUrlIOS : Constants.baseServerUrl;
+      return Constants.baseServerUrl;
     }
   }
 
